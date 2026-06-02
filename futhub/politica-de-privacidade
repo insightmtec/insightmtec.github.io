@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - Fut Hub</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            background-color: #fff;
+        }
+
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 35px;
+            color: #1a1a1a;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            margin-top: 25px;
+        }
+
+        p, li {
+            font-size: 16px;
+        }
+
+        ul {
+            padding-left: 24px;
+        }
+
+        .updated {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .consent {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #28a745;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Política de Privacidade – Fut Hub</h1>
+
+    <p class="updated">
+        <strong>Última atualização:</strong> 02 de junho de 2026
+    </p>
+
+    <p>
+        Bem-vindo ao Fut Hub.
+    </p>
+
+    <p>
+        Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos as informações dos usuários do aplicativo Fut Hub ("Aplicativo", "Serviço", "nós" ou "nosso").
+    </p>
+
+    <p>
+        Ao utilizar o Fut Hub, você concorda com as práticas descritas nesta Política de Privacidade.
+    </p>
+
+    <h2>1. Informações que coletamos</h2>
+
+    <h3>1.1 Informações fornecidas pelo usuário</h3>
+
+    <p>Podemos coletar informações fornecidas diretamente por você, incluindo:</p>
+
+    <ul>
+        <li>Nome de usuário;</li>
+        <li>Foto de perfil (quando fornecida);</li>
+    </ul>
+
+    <h3>1.2 Informações coletadas automaticamente</h3>
+
+    <p>Ao utilizar o aplicativo, podemos coletar automaticamente:</p>
+
+    <ul>
+        <li>Sistema operacional e versão;</li>
+        <li>Idioma do dispositivo;</li>
+        <li>Informações de desempenho e falhas (crash reports);</li>
+        <li>Dados de interação com funcionalidades do aplicativo.</li>
+    </ul>
+
+    <h3>1.3 Informações de assinatura e pagamentos</h3>
+
+    <p>
+        Caso você adquira recursos premium, o processamento do pagamento será realizado pelas plataformas de distribuição de aplicativos.
+    </p>
+
+    <p>
+        Não armazenamos informações completas de cartões de crédito ou dados bancários dos usuários.
+    </p>
+
+    <h2>2. Como utilizamos suas informações</h2>
+
+    <p>Utilizamos as informações coletadas para:</p>
+
+    <ul>
+        <li>Criar seu perfil;</li>
+        <li>Permitir a participação em rankings, desafios e competições;</li>
+        <li>Personalizar a experiência do usuário;</li>
+        <li>Fornecer suporte técnico;</li>
+        <li>Melhorar funcionalidades e desempenho do aplicativo;</li>
+        <li>Detectar fraudes, abusos ou atividades não autorizadas;</li>
+        <li>Cumprir obrigações legais e regulatórias.</li>
+    </ul>
+
+    <h2>3. Compartilhamento de informações</h2>
+
+    <p>
+        Não vendemos dados pessoais dos usuários.
+    </p>
+
+    <p>
+        Podemos compartilhar informações com:
+    </p>
+
+    <ul>
+        <li>Prestadores de serviços necessários para operação do aplicativo;</li>
+        <li>Serviços de hospedagem e banco de dados;</li>
+        <li>Serviços de análise e monitoramento;</li>
+        <li>Plataformas de anúncios;</li>
+        <li>Autoridades governamentais quando exigido por lei.</li>
+    </ul>
+
+    <h2>4. Serviços de terceiros</h2>
+
+    <p>
+        O Fut Hub pode utilizar serviços de terceiros que possuem suas próprias políticas de privacidade, incluindo:
+    </p>
+
+    <ul>
+        <li>Firebase;</li>
+        <li>Google AdMob;</li>
+        <li>Google Analytics;</li>
+    </ul>
+
+    <p>
+        Recomendamos que você consulte as políticas de privacidade desses serviços.
+    </p>
+
+    <h2>5. Publicidade</h2>
+
+    <p>
+        O aplicativo pode exibir anúncios fornecidos por parceiros de publicidade.
+    </p>
+
+    <p>
+        Esses parceiros podem coletar informações limitadas para personalização e medição de anúncios, de acordo com suas próprias políticas de privacidade e com a legislação aplicável.
+    </p>
+
+    <h2>6. Armazenamento e segurança</h2>
+
+    <p>
+        Adotamos medidas técnicas e organizacionais razoáveis para proteger as informações dos usuários contra acesso não autorizado, alteração, divulgação ou destruição.
+    </p>
+
+    <p>
+        Entretanto, nenhum método de transmissão ou armazenamento eletrônico é completamente seguro, e não podemos garantir segurança absoluta.
+    </p>
+
+    <h2>7. Retenção de dados</h2>
+
+    <p>
+        As informações serão mantidas pelo período necessário para:
+    </p>
+
+    <ul>
+        <li>Fornecer os serviços do aplicativo;</li>
+        <li>Cumprir obrigações legais;</li>
+        <li>Resolver disputas;</li>
+        <li>Fazer cumprir nossos contratos.</li>
+    </ul>
+
+    <p>
+        Quando não forem mais necessárias, as informações poderão ser excluídas ou anonimizadas.
+    </p>
+
+    <h2>8. Direitos do usuário</h2>
+
+    <p>
+        Dependendo da legislação aplicável, incluindo a Lei Geral de Proteção de Dados (LGPD), você poderá solicitar:
+    </p>
+
+    <ul>
+        <li>Acesso aos seus dados;</li>
+        <li>Correção de dados incorretos;</li>
+        <li>Exclusão de dados pessoais;</li>
+        <li>Portabilidade dos dados;</li>
+        <li>Revogação de consentimento quando aplicável.</li>
+    </ul>
+
+    <p>
+        Para exercer esses direitos, entre em contato pelos canais indicados nesta Política.
+    </p>
+
+    <h2>9. Privacidade de crianças</h2>
+
+    <p>
+        O Fut Hub não é destinado a crianças menores de 13 anos.
+    </p>
+
+    <p>
+        Não coletamos intencionalmente informações pessoais de crianças. Caso tomemos conhecimento de que dados foram coletados indevidamente, tomaremos medidas para removê-los.
+    </p>
+
+    <h2>10. Alterações nesta Política</h2>
+
+    <p>
+        Podemos atualizar esta Política de Privacidade periodicamente.
+    </p>
+
+    <p>
+        Quaisquer alterações serão publicadas nesta página e entrarão em vigor a partir da data de atualização indicada no início deste documento.
+    </p>
+
+    <h2>11. Contato</h2>
+
+    <div class="contact">
+        <p>
+            Se você tiver dúvidas sobre esta Política de Privacidade ou sobre o tratamento de seus dados pessoais, entre em contato:
+        </p>
+
+        <p>
+            <strong>E-mail:</strong> insightmtec@gmail.com
+        </p>
+    </div>
+
+    <div class="consent">
+        <h2>Consentimento</h2>
+
+        <p>
+            Ao utilizar o Fut Hub, você declara que leu, compreendeu e concorda com esta Política de Privacidade.
+        </p>
+    </div>
+
+</body>
+</html>
