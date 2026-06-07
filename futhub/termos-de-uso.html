@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fut Hub - Privacy Policy</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;line-height:1.7;max-width:900px;margin:0 auto;padding:20px;color:#333}
+.language-selector{position:relative;display:flex;justify-content:flex-end;margin-bottom:20px}
+.language-button{border:1px solid #ddd;background:#fff;border-radius:8px;padding:10px 14px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.language-menu{display:none;position:absolute;top:48px;right:0;background:#fff;border:1px solid #ddd;border-radius:8px;min-width:180px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.language-item{padding:12px;cursor:pointer}
+.language-item:hover{background:#f5f5f5}
+h2{border-bottom:1px solid #e5e5e5;padding-bottom:8px;margin-top:30px}
+.contact,.consent{background:#f5f5f5;padding:15px;border-radius:8px;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="language-selector">
+<button class="language-button" onclick="toggleMenu()">
+    <img id="flag" src="https://flagcdn.com/w40/br.png" alt="">
+    <span id="langName">Português</span>
+    <span>▼</span>
+</button>
+<div class="language-menu" id="menu">
+    <div class="language-item" onclick="setLang('pt')">
+        <img src="https://flagcdn.com/w40/br.png" alt="Brasil">
+        Português
+    </div>
+
+    <div class="language-item" onclick="setLang('en')">
+        <img src="https://flagcdn.com/w40/us.png" alt="USA">
+        English
+    </div>
+
+    <div class="language-item" onclick="setLang('es')">
+        <img src="https://flagcdn.com/w40/es.png" alt="España">
+        Español
+    </div>
+</div>
+</div>
+
+<div id="content"></div>
+
+<script>
+const content = { pt: `<h1>Termos de Uso – Fut Hub PRO</h1> <p><strong>Última atualização:</strong> 07 de junho de 2026</p> <p>Bem-vindo ao Fut Hub PRO.</p> <p>Estes Termos de Uso regulam o acesso e a utilização dos recursos pagos oferecidos pelo Fut Hub.</p> <p>Ao adquirir ou utilizar qualquer recurso PRO, você concorda com estes Termos de Uso.</p> <h2>1. Assinaturas</h2> <ul> <li>O Fut Hub PRO pode ser oferecido por assinatura mensal, anual ou compra única, conforme disponibilidade.</li> <li>Os pagamentos são processados pela Google Play Store ou Apple App Store.</li> <li>As assinaturas são renovadas automaticamente até que sejam canceladas pelo usuário.</li> </ul> <h2>2. Cancelamento</h2> <ul> <li>O usuário pode cancelar sua assinatura a qualquer momento através da loja de aplicativos utilizada para a compra.</li> <li>O cancelamento impede futuras cobranças, mas não gera reembolso automático de valores já pagos.</li> <li>Os benefícios PRO permanecerão ativos até o término do período contratado.</li> </ul> <h2>3. Compra Única</h2> <ul> <li>Quando disponível, a compra única concede acesso aos recursos PRO descritos no momento da aquisição.</li> <li>Novos recursos poderão ser adicionados, alterados ou removidos futuramente.</li> </ul> <h2>4. Recursos e Disponibilidade</h2> <ul> <li>O Fut Hub utiliza dados fornecidos por serviços e APIs de terceiros.</li> <li>Não garantimos disponibilidade contínua, ausência de interrupções ou precisão absoluta dos dados exibidos.</li> <li>Funcionalidades e recursos podem ser modificados para melhorias, manutenção ou adequação técnica.</li> </ul> <h2>5. Conteúdo Informativo</h2> <ul> <li>Estatísticas, previsões, palpites e análises possuem finalidade exclusivamente informativa e recreativa.</li> <li>O Fut Hub não garante resultados esportivos nem se responsabiliza por decisões tomadas com base nas informações apresentadas.</li> </ul> <h2>6. Reembolsos</h2> <ul> <li>Os reembolsos seguem exclusivamente as políticas da Google Play Store e da Apple App Store.</li> <li>Solicitações de reembolso devem ser realizadas diretamente junto à plataforma responsável pelo pagamento.</li> </ul> <h2>7. Alterações dos Termos</h2> <p>Podemos atualizar estes Termos de Uso periodicamente. O uso contínuo do aplicativo após alterações representa a aceitação da versão atualizada.</p> <h2>8. Contato</h2> <div class="contact"> <p><strong>E-mail:</strong> insightmtec@gmail.com</p> </div> <div class="consent"> <h2>Aceitação</h2> <p>Ao utilizar os recursos PRO do Fut Hub, você declara que leu, compreendeu e concorda com estes Termos de Uso.</p> </div>`, en: `<h1>Terms of Use – Fut Hub PRO</h1> <p><strong>Last updated:</strong> June 7, 2026</p> <p>Welcome to Fut Hub PRO.</p> <p>These Terms of Use govern access to and use of the paid features offered by Fut Hub.</p> <p>By purchasing or using any PRO feature, you agree to these Terms of Use.</p> <h2>1. Subscriptions</h2> <ul> <li>Fut Hub PRO may be offered through monthly subscriptions, annual subscriptions, or one-time purchases, depending on availability.</li> <li>Payments are processed through Google Play Store or Apple App Store.</li> <li>Subscriptions automatically renew unless canceled by the user.</li> </ul> <h2>2. Cancellation</h2> <ul> <li>Users may cancel their subscription at any time through the application store used for the purchase.</li> <li>Cancellation prevents future charges but does not automatically generate refunds for amounts already paid.</li> <li>PRO benefits remain active until the end of the current subscription period.</li> </ul> <h2>3. One-Time Purchase</h2> <ul> <li>When available, a one-time purchase grants access to the PRO features described at the time of purchase.</li> <li>New features may be added, modified, or removed in the future.</li> </ul> <h2>4. Features and Availability</h2> <ul> <li>Fut Hub uses data provided by third-party services and APIs.</li> <li>We do not guarantee uninterrupted availability or absolute accuracy of displayed data.</li> <li>Features and services may be modified for maintenance, improvements, or technical reasons.</li> </ul> <h2>5. Informational Content</h2> <ul> <li>Statistics, predictions, tips, and analyses are provided for informational and entertainment purposes only.</li> <li>Fut Hub does not guarantee sporting outcomes and is not responsible for decisions made based on the information provided.</li> </ul> <h2>6. Refunds</h2> <ul> <li>Refunds are governed exclusively by the policies of Google Play Store and Apple App Store.</li> <li>Refund requests must be submitted directly to the platform responsible for processing the payment.</li> </ul> <h2>7. Changes to These Terms</h2> <p>We may update these Terms of Use periodically. Continued use of the application after changes constitutes acceptance of the updated version.</p> <h2>8. Contact</h2> <div class="contact"> <p><strong>Email:</strong> insightmtec@gmail.com</p> </div> <div class="consent"> <h2>Acceptance</h2> <p>By using Fut Hub PRO features, you acknowledge that you have read, understood, and agreed to these Terms of Use.</p> </div>`, es: `<h1>Términos de Uso – Fut Hub PRO</h1> <p><strong>Última actualización:</strong> 7 de junio de 2026</p> <p>Bienvenido a Fut Hub PRO.</p> <p>Estos Términos de Uso regulan el acceso y uso de las funciones de pago ofrecidas por Fut Hub.</p> <p>Al adquirir o utilizar cualquier función PRO, usted acepta estos Términos de Uso.</p> <h2>1. Suscripciones</h2> <ul> <li>Fut Hub PRO puede ofrecerse mediante suscripción mensual, suscripción anual o compra única, según disponibilidad.</li> <li>Los pagos son procesados por Google Play Store o Apple App Store.</li> <li>Las suscripciones se renuevan automáticamente hasta que sean canceladas por el usuario.</li> </ul> <h2>2. Cancelación</h2> <ul> <li>El usuario puede cancelar su suscripción en cualquier momento desde la tienda de aplicaciones utilizada para la compra.</li> <li>La cancelación evita futuros cargos, pero no genera reembolsos automáticos por pagos ya realizados.</li> <li>Los beneficios PRO permanecerán activos hasta el final del período contratado.</li> </ul> <h2>3. Compra Única</h2> <ul> <li>Cuando esté disponible, la compra única otorga acceso a las funciones PRO descritas en el momento de la compra.</li> <li>Nuevas funciones podrán agregarse, modificarse o eliminarse en el futuro.</li> </ul> <h2>4. Funciones y Disponibilidad</h2> <ul> <li>Fut Hub utiliza datos proporcionados por servicios y APIs de terceros.</li> <li>No garantizamos disponibilidad continua ni precisión absoluta de los datos mostrados.</li> <li>Las funciones y servicios pueden modificarse por mantenimiento, mejoras o razones técnicas.</li> </ul> <h2>5. Contenido Informativo</h2> <ul> <li>Las estadísticas, predicciones, pronósticos y análisis tienen fines exclusivamente informativos y recreativos.</li> <li>Fut Hub no garantiza resultados deportivos ni se responsabiliza por decisiones tomadas con base en la información proporcionada.</li> </ul> <h2>6. Reembolsos</h2> <ul> <li>Los reembolsos se rigen exclusivamente por las políticas de Google Play Store y Apple App Store.</li> <li>Las solicitudes de reembolso deben realizarse directamente ante la plataforma responsable del pago.</li> </ul> <h2>7. Modificaciones de los Términos</h2> <p>Podemos actualizar estos Términos de Uso periódicamente. El uso continuo de la aplicación después de los cambios constituye la aceptación de la versión actualizada.</p> <h2>8. Contacto</h2> <div class="contact"> <p><strong>Correo electrónico:</strong> insightmtec@gmail.com</p> </div> <div class="consent"> <h2>Aceptación</h2> <p>Al utilizar las funciones PRO de Fut Hub, usted declara que ha leído, comprendido y aceptado estos Términos de Uso.</p> </div>` };
+
+const names = {
+    pt: ["https://flagcdn.com/w40/br.png", "Português"],
+    en: ["https://flagcdn.com/w40/us.png", "English"],
+    es: ["https://flagcdn.com/w40/es.png", "Español"]
+};
+    
+function toggleMenu(){menu.style.display=menu.style.display==='block'?'none':'block';}
+    
+function setLang(lang){
+    localStorage.setItem('lang',lang);
+
+    document.getElementById('content').innerHTML = content[lang];
+
+    document.getElementById('flag').src = names[lang][0];
+    document.getElementById('langName').textContent = names[lang][1];
+
+    document.getElementById('menu').style.display = 'none';
+}
+    
+setLang(localStorage.getItem('lang')||'pt');
+</script>
+</body>
+</html>
