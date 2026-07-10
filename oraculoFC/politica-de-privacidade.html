@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Privacidade — Oráculo FC</title>
+<style>
+  :root {
+    --accent: #7A9900;
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --text-secondary: #555555;
+    --border: #e5e5e5;
+    --surface: #f7f7f7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+  header {
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 8px;
+    color: var(--text);
+  }
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin: 0;
+  }
+  .subtitle strong { color: var(--text); }
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin: 40px 0 12px;
+    padding-top: 4px;
+    color: var(--text);
+  }
+  h2 .num {
+    color: var(--accent);
+    margin-right: 8px;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 20px 0 8px;
+    color: var(--text);
+  }
+  p { margin: 0 0 14px; color: var(--text); }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 16px;
+    font-size: 14px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    background: var(--surface);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-secondary);
+  }
+  a { color: var(--accent); text-decoration: underline; }
+  .contact-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 12px;
+  }
+  .contact-box p { margin: 4px 0; }
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 13px;
+  }
+
+  /* Language switcher */
+  .lang-switcher {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(6px);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+  .flag-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 26px;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .flag-btn svg { display: block; width: 100%; height: 100%; border-radius: 3px; }
+  .flag-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+  .flag-btn.active { opacity: 1; border-color: var(--accent); }
+
+  .lang-content { display: none; }
+  .lang-content.active { display: block; }
+
+  @media (max-width: 480px) {
+    .lang-switcher { top: 10px; right: 10px; padding: 5px; gap: 6px; }
+    .flag-btn { width: 28px; height: 21px; }
+    .container { padding-top: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-switcher">
+  <button class="flag-btn" data-lang="pt" onclick="setLang('pt')" aria-label="Português" title="Português">
+    <svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="16" fill="#009c3b"/>
+      <polygon points="12,2 22,8 12,14 2,8" fill="#ffdf00"/>
+      <circle cx="12" cy="8" r="3.4" fill="#002776"/>
+    </svg>
+  </button>
+  <button class="flag-btn" data-lang="en" onclick="setLang('en')" aria-label="English" title="English">
+    <svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="16" fill="#ffffff"/>
+      <rect y="0" width="24" height="2" fill="#B22234"/>
+      <rect y="4" width="24" height="2" fill="#B22234"/>
+      <rect y="8" width="24" height="2" fill="#B22234"/>
+      <rect y="12" width="24" height="2" fill="#B22234"/>
+      <rect width="10" height="9" fill="#3C3B6E"/>
+    </svg>
+  </button>
+  <button class="flag-btn" data-lang="es" onclick="setLang('es')" aria-label="Español" title="Español">
+    <svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="16" fill="#AA151B"/>
+      <rect y="4" width="24" height="8" fill="#F1BF00"/>
+    </svg>
+  </button>
+</div>
+
+<!-- ==================== PORTUGUÊS ==================== -->
+<div class="lang-content" data-lang="pt">
+<div class="container">
+
+  <header>
+    <h1>Política de Privacidade</h1>
+    <p class="subtitle"><strong>Oráculo FC</strong> — aplicativo de palpites de futebol (Brasileirão)<br>
+    Última atualização: 9 de julho de 2026</p>
+  </header>
+
+  <p>
+    A <strong>Insight Mobile Tech</strong> ("nós") desenvolve e mantém o aplicativo <strong>Oráculo FC</strong>
+    ("aplicativo", "app"), disponível para Android e iOS. Esta Política de Privacidade explica quais dados
+    coletamos, como usamos, com quem compartilhamos e quais direitos você tem sobre eles, em conformidade com a
+    Lei Geral de Proteção de Dados Pessoais (LGPD — Lei nº 13.709/2018).
+  </p>
+  <p>
+    Ao criar uma conta ou usar o Oráculo FC, você concorda com as práticas descritas nesta política. Se você não
+    concordar, pedimos que não utilize o aplicativo.
+  </p>
+
+  <h2><span class="num">1.</span>Quais dados coletamos</h2>
+
+  <h3>1.1 Dados de conta e autenticação</h3>
+  <p>Você pode usar o Oráculo FC de três formas, e os dados variam conforme a opção escolhida:</p>
+  <table>
+    <tr><th>Forma de acesso</th><th>Dados recebidos</th></tr>
+    <tr>
+      <td>Convidado (login anônimo)</td>
+      <td>Um identificador único de usuário gerado pelo Firebase Authentication. Nenhum dado pessoal é coletado nesse modo.</td>
+    </tr>
+    <tr>
+      <td>Login com Google <span style="color:var(--text-secondary);font-weight:normal;">(Android)</span></td>
+      <td>Nome e foto de perfil associados à sua Conta Google, fornecidos pelo Google no momento do login.</td>
+    </tr>
+    <tr>
+      <td>Login com Apple <span style="color:var(--text-secondary);font-weight:normal;">(iOS)</span></td>
+      <td>Nome e e-mail associados ao seu Apple ID, conforme as permissões que você autorizar durante o login com o "Sign in with Apple".</td>
+    </tr>
+  </table>
+  <p>
+    O nome e a foto de perfil recebidos do Google ou da Apple ficam armazenados no serviço de autenticação
+    (Firebase Authentication) e também podem ser replicados dentro de uma liga da qual você participa, para que
+    outros membros vejam quem está no ranking (veja a seção 1.3).
+  </p>
+
+  <h3>1.2 Apelido e progresso no jogo</h3>
+  <p>Ao configurar seu perfil, você escolhe um apelido de exibição. Além disso, armazenamos:</p>
+  <ul>
+    <li>Nível, pontos de experiência (XP) e pontuação acumulada;</li>
+    <li>Precisão dos seus palpites (percentual de acertos);</li>
+    <li>Seus palpites para cada partida (placar previsto) e o resultado (pendente, correto, parcial ou errado);</li>
+    <li>Status de assinante PRO (atualmente sem cobrança real — veja a seção 6).</li>
+  </ul>
+
+  <h3>1.3 Ligas</h3>
+  <p>Quando você cria ou participa de uma liga (bolão), armazenamos:</p>
+  <ul>
+    <li>Nome, descrição e formato da liga (pontos corridos ou mata-mata), definidos por quem cria a liga;</li>
+    <li>Se a liga é pública ou privada, e o código de convite (6 caracteres) usado para entrar em ligas privadas;</li>
+    <li>A lista de membros de cada liga, incluindo o apelido, a foto de perfil e a pontuação de cada participante — essas informações ficam visíveis para os demais membros da mesma liga, para permitir o ranking.</li>
+  </ul>
+
+  <h3>1.4 Câmera (leitura de QR Code)</h3>
+  <p>
+    No Android, a leitura do QR Code de convite de liga é feita através do serviço de leitura de código do Google
+    Play Services, que processa a imagem da câmera em um componente separado do sistema — o Oráculo FC não acessa
+    diretamente as imagens capturadas, apenas recebe o texto decodificado do código. No iOS, essa função ainda não
+    está disponível; o convite pode ser feito digitando o código de 6 dígitos manualmente.
+  </p>
+
+  <h3>1.5 O que <u>não</u> coletamos</h3>
+  <ul>
+    <li>Não usamos ferramentas de analytics, rastreamento de comportamento ou publicidade;</li>
+    <li>Não coletamos localização geográfica;</li>
+    <li>Não coletamos dados de pagamento ou cartão de crédito (veja a seção 6);</li>
+    <li>Não acessamos contatos, mensagens, arquivos ou outros apps do seu dispositivo.</li>
+  </ul>
+
+  <h2><span class="num">2.</span>Como usamos os dados</h2>
+  <p>Usamos os dados coletados exclusivamente para:</p>
+  <ul>
+    <li>Criar e manter sua conta e permitir o login em diferentes dispositivos;</li>
+    <li>Calcular pontuação, ranking, nível e precisão dos seus palpites;</li>
+    <li>Exibir ligas, seus membros e classificações;</li>
+    <li>Processar convites e entrada em ligas via código ou QR Code;</li>
+    <li>Dar suporte técnico quando você entrar em contato conosco.</li>
+  </ul>
+  <p>Não vendemos seus dados pessoais, nem os usamos para publicidade direcionada.</p>
+
+  <h2><span class="num">3.</span>Com quem compartilhamos os dados</h2>
+  <p>
+    Não compartilhamos seus dados pessoais com terceiros para fins comerciais. Os dados são processados pelos
+    seguintes prestadores de serviço, que atuam como operadores de dados em nosso nome:
+  </p>
+  <table>
+    <tr><th>Serviço</th><th>Finalidade</th></tr>
+    <tr><td>Firebase Authentication (Google)</td><td>Autenticação e gerenciamento de contas</td></tr>
+    <tr><td>Firebase Firestore (Google)</td><td>Armazenamento do perfil, palpites, ligas e pontuações</td></tr>
+    <tr><td>Google Sign-In / Credential Manager</td><td>Login com Conta Google (Android)</td></tr>
+    <tr><td>Sign in with Apple</td><td>Login com Apple ID (iOS)</td></tr>
+    <tr><td>Google Play Services (Code Scanner)</td><td>Leitura de QR Code de convite (Android)</td></tr>
+  </table>
+  <p>
+    Além disso, dentro de uma mesma liga, o apelido, a foto de perfil e a pontuação de cada membro ficam visíveis
+    para os demais participantes daquela liga — essa visibilidade é necessária para o funcionamento do ranking e
+    é sempre restrita aos membros da liga em questão.
+  </p>
+  <p>
+    Podemos divulgar dados caso exigido por lei, ordem judicial ou para proteger direitos, segurança e propriedade
+    do Oráculo FC e de seus usuários.
+  </p>
+
+  <h2><span class="num">4.</span>Armazenamento e segurança</h2>
+  <p>
+    Os dados são armazenados nos servidores do Firebase (Google Cloud), com regras de acesso que restringem quem
+    pode ler e escrever cada informação. Por exemplo, pontuações e resultados de palpites são calculados e
+    gravados apenas pelo nosso sistema (backend), impedindo que qualquer usuário altere sua própria pontuação.
+  </p>
+  <p>
+    Mantemos seus dados enquanto sua conta estiver ativa. Se você excluir sua conta, removemos os dados pessoais
+    associados a ela, exceto quando a manutenção de algum registro for exigida por lei ou necessária para a
+    integridade de ligas das quais você participou (nesse caso, os dados podem ser mantidos de forma anonimizada).
+  </p>
+
+  <h2><span class="num">5.</span>Seus direitos</h2>
+  <p>De acordo com a LGPD, você pode, a qualquer momento:</p>
+  <ul>
+    <li>Confirmar a existência de tratamento dos seus dados;</li>
+    <li>Acessar os dados que temos sobre você;</li>
+    <li>Corrigir dados incompletos, inexatos ou desatualizados;</li>
+    <li>Solicitar a exclusão da sua conta e dos dados pessoais associados;</li>
+    <li>Solicitar a portabilidade dos seus dados para outro fornecedor de serviço;</li>
+    <li>Revogar o consentimento dado, quando aplicável.</li>
+  </ul>
+  <p>Para exercer qualquer um desses direitos, entre em contato pelo e-mail informado na seção 8.</p>
+
+  <h2><span class="num">6.</span>Assinatura PRO e pagamentos</h2>
+  <p>
+    O Oráculo FC possui um plano PRO opcional com benefícios adicionais dentro do jogo. No momento, o processamento
+    de pagamento ainda <strong>não está ativo</strong> — nenhuma cobrança é realizada. Quando a assinatura for
+    disponibilizada, ela será processada diretamente pela Google Play Store (Android) ou pela App Store (iOS), que
+    possuem suas próprias políticas de privacidade para dados de pagamento; o Oráculo FC não armazena números de
+    cartão ou outros dados financeiros.
+  </p>
+
+  <h2><span class="num">7.</span>Crianças e adolescentes</h2>
+  <p>
+    O Oráculo FC não é direcionado a menores de 13 anos e não coletamos intencionalmente dados de crianças dessa
+    faixa etária. Caso identifiquemos que dados de uma criança foram coletados sem o consentimento adequado de um
+    responsável legal, tomaremos as medidas necessárias para excluí-los.
+  </p>
+
+  <h2><span class="num">8.</span>Contato</h2>
+  <p>Se você tiver dúvidas, solicitações relacionadas aos seus dados ou sugestões sobre esta política, entre em contato:</p>
+  <div class="contact-box">
+    <p><strong>Insight Mobile Tech</strong></p>
+    <p>E-mail: <a href="mailto:contato@insightmobile.com.br">contato@insightmobile.com.br</a></p>
+  </div>
+
+  <h2><span class="num">9.</span>Alterações nesta política</h2>
+  <p>
+    Podemos atualizar esta Política de Privacidade periodicamente, para refletir mudanças no aplicativo ou na
+    legislação aplicável. Publicaremos qualquer alteração nesta mesma página, com a data de atualização revisada
+    no topo do documento. Recomendamos que você revise esta política de tempos em tempos.
+  </p>
+
+  <footer>
+    <p>Oráculo FC — Política de Privacidade — Última atualização em 9 de julho de 2026.</p>
+  </footer>
+
+</div>
+</div>
+
+<!-- ==================== ENGLISH ==================== -->
+<div class="lang-content" data-lang="en">
+<div class="container">
+
+  <header>
+    <h1>Privacy Policy</h1>
+    <p class="subtitle"><strong>Oráculo FC</strong> — soccer prediction app (Brazilian Championship)<br>
+    Last updated: July 9, 2026</p>
+  </header>
+
+  <p>
+    <strong>Insight Mobile Tech</strong> ("we", "us") develops and maintains the <strong>Oráculo FC</strong> app
+    ("app"), available for Android and iOS. This Privacy Policy explains what data we collect, how we use it, who
+    we share it with, and what rights you have over it, in line with the principles of Brazil's General Data
+    Protection Law (LGPD — Law No. 13,709/2018).
+  </p>
+  <p>
+    By creating an account or using Oráculo FC, you agree to the practices described in this policy. If you do not
+    agree, please do not use the app.
+  </p>
+
+  <h2><span class="num">1.</span>What data we collect</h2>
+
+  <h3>1.1 Account and authentication data</h3>
+  <p>You can use Oráculo FC in three ways, and the data collected varies depending on the option you choose:</p>
+  <table>
+    <tr><th>Sign-in method</th><th>Data received</th></tr>
+    <tr>
+      <td>Guest (anonymous login)</td>
+      <td>A unique user identifier generated by Firebase Authentication. No personal data is collected in this mode.</td>
+    </tr>
+    <tr>
+      <td>Sign in with Google <span style="color:var(--text-secondary);font-weight:normal;">(Android)</span></td>
+      <td>The name and profile photo associated with your Google Account, provided by Google at sign-in.</td>
+    </tr>
+    <tr>
+      <td>Sign in with Apple <span style="color:var(--text-secondary);font-weight:normal;">(iOS)</span></td>
+      <td>The name and email associated with your Apple ID, according to the permissions you authorize during "Sign in with Apple".</td>
+    </tr>
+  </table>
+  <p>
+    The name and profile photo received from Google or Apple are stored in our authentication service (Firebase
+    Authentication) and may also be copied into any league you join, so other members can see who is on the
+    leaderboard (see section 1.3).
+  </p>
+
+  <h3>1.2 Nickname and game progress</h3>
+  <p>When setting up your profile, you choose a display nickname. In addition, we store:</p>
+  <ul>
+    <li>Level, experience points (XP) and accumulated score;</li>
+    <li>The accuracy of your predictions (percentage of correct picks);</li>
+    <li>Your predictions for each match (predicted score) and their outcome (pending, correct, partial or wrong);</li>
+    <li>PRO subscriber status (currently not billed — see section 6).</li>
+  </ul>
+
+  <h3>1.3 Leagues</h3>
+  <p>When you create or join a league (a private prediction pool), we store:</p>
+  <ul>
+    <li>The league's name, description and format (regular points or knockout), set by whoever creates it;</li>
+    <li>Whether the league is public or private, and the 6-character invite code used to join private leagues;</li>
+    <li>The list of members of each league, including each participant's nickname, profile photo and score — this information is visible to the other members of that same league to make the leaderboard possible.</li>
+  </ul>
+
+  <h3>1.4 Camera (QR Code scanning)</h3>
+  <p>
+    On Android, scanning a league invite QR Code is handled through Google Play Services' code scanning service,
+    which processes the camera image in a separate system component — Oráculo FC never directly accesses the
+    captured images, it only receives the decoded text. On iOS, this feature is not yet available; invites can be
+    entered manually using the 6-digit code instead.
+  </p>
+
+  <h3>1.5 What we do <u>not</u> collect</h3>
+  <ul>
+    <li>We do not use analytics, behavioral tracking, or advertising tools;</li>
+    <li>We do not collect your geographic location;</li>
+    <li>We do not collect payment or credit card data (see section 6);</li>
+    <li>We do not access your contacts, messages, files, or other apps on your device.</li>
+  </ul>
+
+  <h2><span class="num">2.</span>How we use your data</h2>
+  <p>We use the data we collect exclusively to:</p>
+  <ul>
+    <li>Create and maintain your account and allow sign-in across devices;</li>
+    <li>Calculate scores, leaderboard rankings, level and prediction accuracy;</li>
+    <li>Display leagues, their members and standings;</li>
+    <li>Process invitations and joining leagues via code or QR Code;</li>
+    <li>Provide technical support when you contact us.</li>
+  </ul>
+  <p>We do not sell your personal data or use it for targeted advertising.</p>
+
+  <h2><span class="num">3.</span>Who we share data with</h2>
+  <p>
+    We do not share your personal data with third parties for commercial purposes. Data is processed by the
+    following service providers, acting as data processors on our behalf:
+  </p>
+  <table>
+    <tr><th>Service</th><th>Purpose</th></tr>
+    <tr><td>Firebase Authentication (Google)</td><td>Authentication and account management</td></tr>
+    <tr><td>Firebase Firestore (Google)</td><td>Storage of profile, predictions, leagues and scores</td></tr>
+    <tr><td>Google Sign-In / Credential Manager</td><td>Sign in with Google Account (Android)</td></tr>
+    <tr><td>Sign in with Apple</td><td>Sign in with Apple ID (iOS)</td></tr>
+    <tr><td>Google Play Services (Code Scanner)</td><td>Reading league invite QR Codes (Android)</td></tr>
+  </table>
+  <p>
+    In addition, within a given league, each member's nickname, profile photo and score are visible to the other
+    participants of that same league — this visibility is required for the leaderboard to work, and is always
+    limited to the members of that specific league.
+  </p>
+  <p>
+    We may disclose data when required by law, court order, or to protect the rights, safety and property of
+    Oráculo FC and its users.
+  </p>
+
+  <h2><span class="num">4.</span>Storage and security</h2>
+  <p>
+    Data is stored on Firebase (Google Cloud) servers, with access rules restricting who can read and write each
+    piece of information. For example, scores and prediction outcomes are calculated and written only by our
+    backend system, preventing any user from altering their own score.
+  </p>
+  <p>
+    We keep your data for as long as your account is active. If you delete your account, we remove the personal
+    data associated with it, except where a record must be kept by law or is necessary to preserve the integrity
+    of leagues you participated in (in which case data may be retained in anonymized form).
+  </p>
+
+  <h2><span class="num">5.</span>Your rights</h2>
+  <p>In line with the LGPD, you may, at any time:</p>
+  <ul>
+    <li>Confirm whether we process your data;</li>
+    <li>Access the data we hold about you;</li>
+    <li>Correct incomplete, inaccurate or outdated data;</li>
+    <li>Request deletion of your account and associated personal data;</li>
+    <li>Request portability of your data to another service provider;</li>
+    <li>Withdraw your consent, where applicable.</li>
+  </ul>
+  <p>To exercise any of these rights, please contact us using the email provided in section 8.</p>
+
+  <h2><span class="num">6.</span>PRO subscription and payments</h2>
+  <p>
+    Oráculo FC offers an optional PRO plan with additional in-game benefits. Payment processing is currently
+    <strong>not active</strong> — no charges are made. Once the subscription becomes available, it will be
+    processed directly through the Google Play Store (Android) or the App Store (iOS), which have their own
+    privacy policies covering payment data; Oráculo FC does not store card numbers or other financial data.
+  </p>
+
+  <h2><span class="num">7.</span>Children</h2>
+  <p>
+    Oráculo FC is not directed at children under 13, and we do not knowingly collect data from children in this
+    age group. If we learn that a child's data was collected without appropriate parental or guardian consent, we
+    will take the necessary steps to delete it.
+  </p>
+
+  <h2><span class="num">8.</span>Contact</h2>
+  <p>If you have questions, requests related to your data, or feedback about this policy, please reach out:</p>
+  <div class="contact-box">
+    <p><strong>Insight Mobile Tech</strong></p>
+    <p>Email: <a href="mailto:contato@insightmobile.com.br">contato@insightmobile.com.br</a></p>
+  </div>
+
+  <h2><span class="num">9.</span>Changes to this policy</h2>
+  <p>
+    We may update this Privacy Policy from time to time to reflect changes in the app or in applicable law. Any
+    changes will be posted on this same page, with the updated date revised at the top of the document. We
+    recommend reviewing this policy periodically.
+  </p>
+
+  <footer>
+    <p>Oráculo FC — Privacy Policy — Last updated on July 9, 2026.</p>
+  </footer>
+
+</div>
+</div>
+
+<!-- ==================== ESPAÑOL ==================== -->
+<div class="lang-content" data-lang="es">
+<div class="container">
+
+  <header>
+    <h1>Política de Privacidad</h1>
+    <p class="subtitle"><strong>Oráculo FC</strong> — app de predicciones de fútbol (Brasileirão)<br>
+    Última actualización: 9 de julio de 2026</p>
+  </header>
+
+  <p>
+    <strong>Insight Mobile Tech</strong> ("nosotros") desarrolla y mantiene la aplicación <strong>Oráculo FC</strong>
+    ("aplicación", "app"), disponible para Android e iOS. Esta Política de Privacidad explica qué datos recopilamos,
+    cómo los usamos, con quién los compartimos y qué derechos tienes sobre ellos, conforme a los principios de la
+    Ley General de Protección de Datos de Brasil (LGPD — Ley n.º 13.709/2018).
+  </p>
+  <p>
+    Al crear una cuenta o usar Oráculo FC, aceptas las prácticas descritas en esta política. Si no estás de
+    acuerdo, te pedimos que no utilices la aplicación.
+  </p>
+
+  <h2><span class="num">1.</span>Qué datos recopilamos</h2>
+
+  <h3>1.1 Datos de cuenta y autenticación</h3>
+  <p>Puedes usar Oráculo FC de tres formas, y los datos varían según la opción elegida:</p>
+  <table>
+    <tr><th>Forma de acceso</th><th>Datos recibidos</th></tr>
+    <tr>
+      <td>Invitado (inicio de sesión anónimo)</td>
+      <td>Un identificador único de usuario generado por Firebase Authentication. No se recopila ningún dato personal en este modo.</td>
+    </tr>
+    <tr>
+      <td>Inicio de sesión con Google <span style="color:var(--text-secondary);font-weight:normal;">(Android)</span></td>
+      <td>El nombre y la foto de perfil asociados a tu Cuenta de Google, proporcionados por Google al iniciar sesión.</td>
+    </tr>
+    <tr>
+      <td>Inicio de sesión con Apple <span style="color:var(--text-secondary);font-weight:normal;">(iOS)</span></td>
+      <td>El nombre y el correo electrónico asociados a tu Apple ID, según los permisos que autorices durante el inicio de sesión con "Sign in with Apple".</td>
+    </tr>
+  </table>
+  <p>
+    El nombre y la foto de perfil recibidos de Google o Apple se almacenan en nuestro servicio de autenticación
+    (Firebase Authentication) y también pueden copiarse dentro de una liga en la que participes, para que otros
+    miembros vean quién está en la clasificación (consulta la sección 1.3).
+  </p>
+
+  <h3>1.2 Apodo y progreso en el juego</h3>
+  <p>Al configurar tu perfil, eliges un apodo de visualización. Además, almacenamos:</p>
+  <ul>
+    <li>Nivel, puntos de experiencia (XP) y puntuación acumulada;</li>
+    <li>La precisión de tus predicciones (porcentaje de aciertos);</li>
+    <li>Tus predicciones para cada partido (marcador previsto) y su resultado (pendiente, correcto, parcial o incorrecto);</li>
+    <li>Estado de suscriptor PRO (actualmente sin cobro real — consulta la sección 6).</li>
+  </ul>
+
+  <h3>1.3 Ligas</h3>
+  <p>Cuando creas o te unes a una liga (bolão/quiniela privada), almacenamos:</p>
+  <ul>
+    <li>El nombre, la descripción y el formato de la liga (puntos corridos o eliminación directa), definidos por quien la crea;</li>
+    <li>Si la liga es pública o privada, y el código de invitación (6 caracteres) usado para unirse a ligas privadas;</li>
+    <li>La lista de miembros de cada liga, incluyendo el apodo, la foto de perfil y la puntuación de cada participante — esta información es visible para los demás miembros de esa misma liga, para permitir la clasificación.</li>
+  </ul>
+
+  <h3>1.4 Cámara (lectura de código QR)</h3>
+  <p>
+    En Android, la lectura del código QR de invitación a una liga se realiza mediante el servicio de escaneo de
+    códigos de Google Play Services, que procesa la imagen de la cámara en un componente separado del sistema —
+    Oráculo FC no accede directamente a las imágenes capturadas, solo recibe el texto decodificado. En iOS, esta
+    función aún no está disponible; la invitación puede hacerse escribiendo manualmente el código de 6 dígitos.
+  </p>
+
+  <h3>1.5 Qué <u>no</u> recopilamos</h3>
+  <ul>
+    <li>No utilizamos herramientas de analítica, seguimiento de comportamiento ni publicidad;</li>
+    <li>No recopilamos tu ubicación geográfica;</li>
+    <li>No recopilamos datos de pago ni de tarjetas de crédito (consulta la sección 6);</li>
+    <li>No accedemos a tus contactos, mensajes, archivos ni otras aplicaciones de tu dispositivo.</li>
+  </ul>
+
+  <h2><span class="num">2.</span>Cómo usamos los datos</h2>
+  <p>Usamos los datos recopilados exclusivamente para:</p>
+  <ul>
+    <li>Crear y mantener tu cuenta y permitir el inicio de sesión en distintos dispositivos;</li>
+    <li>Calcular la puntuación, la clasificación, el nivel y la precisión de tus predicciones;</li>
+    <li>Mostrar las ligas, sus miembros y clasificaciones;</li>
+    <li>Procesar invitaciones y el ingreso a ligas mediante código o código QR;</li>
+    <li>Brindar soporte técnico cuando te pongas en contacto con nosotros.</li>
+  </ul>
+  <p>No vendemos tus datos personales ni los usamos para publicidad dirigida.</p>
+
+  <h2><span class="num">3.</span>Con quién compartimos los datos</h2>
+  <p>
+    No compartimos tus datos personales con terceros con fines comerciales. Los datos son procesados por los
+    siguientes proveedores de servicios, que actúan como encargados del tratamiento en nuestro nombre:
+  </p>
+  <table>
+    <tr><th>Servicio</th><th>Finalidad</th></tr>
+    <tr><td>Firebase Authentication (Google)</td><td>Autenticación y gestión de cuentas</td></tr>
+    <tr><td>Firebase Firestore (Google)</td><td>Almacenamiento del perfil, predicciones, ligas y puntuaciones</td></tr>
+    <tr><td>Google Sign-In / Credential Manager</td><td>Inicio de sesión con Cuenta de Google (Android)</td></tr>
+    <tr><td>Sign in with Apple</td><td>Inicio de sesión con Apple ID (iOS)</td></tr>
+    <tr><td>Google Play Services (Code Scanner)</td><td>Lectura del código QR de invitación (Android)</td></tr>
+  </table>
+  <p>
+    Además, dentro de una misma liga, el apodo, la foto de perfil y la puntuación de cada miembro son visibles
+    para los demás participantes de esa liga — esta visibilidad es necesaria para el funcionamiento de la
+    clasificación y siempre está limitada a los miembros de la liga en cuestión.
+  </p>
+  <p>
+    Podemos divulgar datos cuando lo exija la ley, una orden judicial, o para proteger los derechos, la seguridad
+    y la propiedad de Oráculo FC y de sus usuarios.
+  </p>
+
+  <h2><span class="num">4.</span>Almacenamiento y seguridad</h2>
+  <p>
+    Los datos se almacenan en los servidores de Firebase (Google Cloud), con reglas de acceso que restringen quién
+    puede leer y escribir cada información. Por ejemplo, las puntuaciones y los resultados de las predicciones se
+    calculan y se escriben únicamente por nuestro sistema (backend), lo que impide que cualquier usuario altere su
+    propia puntuación.
+  </p>
+  <p>
+    Conservamos tus datos mientras tu cuenta esté activa. Si eliminas tu cuenta, eliminamos los datos personales
+    asociados a ella, salvo cuando la conservación de algún registro sea exigida por ley o necesaria para preservar
+    la integridad de las ligas en las que participaste (en ese caso, los datos pueden conservarse de forma
+    anonimizada).
+  </p>
+
+  <h2><span class="num">5.</span>Tus derechos</h2>
+  <p>De acuerdo con la LGPD, puedes, en cualquier momento:</p>
+  <ul>
+    <li>Confirmar la existencia de tratamiento de tus datos;</li>
+    <li>Acceder a los datos que tenemos sobre ti;</li>
+    <li>Corregir datos incompletos, inexactos o desactualizados;</li>
+    <li>Solicitar la eliminación de tu cuenta y de los datos personales asociados;</li>
+    <li>Solicitar la portabilidad de tus datos a otro proveedor de servicios;</li>
+    <li>Revocar el consentimiento otorgado, cuando corresponda.</li>
+  </ul>
+  <p>Para ejercer cualquiera de estos derechos, ponte en contacto a través del correo electrónico indicado en la sección 8.</p>
+
+  <h2><span class="num">6.</span>Suscripción PRO y pagos</h2>
+  <p>
+    Oráculo FC cuenta con un plan PRO opcional con beneficios adicionales dentro del juego. Por el momento, el
+    procesamiento de pagos <strong>no está activo</strong> — no se realiza ningún cobro. Cuando la suscripción esté
+    disponible, se procesará directamente a través de Google Play Store (Android) o App Store (iOS), que tienen sus
+    propias políticas de privacidad para los datos de pago; Oráculo FC no almacena números de tarjeta ni otros
+    datos financieros.
+  </p>
+
+  <h2><span class="num">7.</span>Niños, niñas y adolescentes</h2>
+  <p>
+    Oráculo FC no está dirigido a menores de 13 años y no recopilamos intencionalmente datos de niños de ese rango
+    de edad. Si detectamos que se recopilaron datos de un menor sin el consentimiento adecuado de un responsable
+    legal, tomaremos las medidas necesarias para eliminarlos.
+  </p>
+
+  <h2><span class="num">8.</span>Contacto</h2>
+  <p>Si tienes dudas, solicitudes relacionadas con tus datos o sugerencias sobre esta política, contáctanos:</p>
+  <div class="contact-box">
+    <p><strong>Insight Mobile Tech</strong></p>
+    <p>Correo electrónico: <a href="mailto:contato@insightmobile.com.br">contato@insightmobile.com.br</a></p>
+  </div>
+
+  <h2><span class="num">9.</span>Cambios en esta política</h2>
+  <p>
+    Podemos actualizar esta Política de Privacidad periódicamente, para reflejar cambios en la aplicación o en la
+    legislación aplicable. Publicaremos cualquier cambio en esta misma página, con la fecha de actualización
+    revisada en la parte superior del documento. Te recomendamos revisar esta política de vez en cuando.
+  </p>
+
+  <footer>
+    <p>Oráculo FC — Política de Privacidad — Última actualización el 9 de julio de 2026.</p>
+  </footer>
+
+</div>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-content').forEach(function (el) {
+      el.classList.toggle('active', el.dataset.lang === lang);
+    });
+    document.querySelectorAll('.flag-btn').forEach(function (btn) {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+    try { localStorage.setItem('oraculofc_privacy_lang', lang); } catch (e) {}
+  }
+
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('oraculofc_privacy_lang'); } catch (e) {}
+    setLang(saved || 'pt');
+  })();
+</script>
+
+</body>
+</html>
