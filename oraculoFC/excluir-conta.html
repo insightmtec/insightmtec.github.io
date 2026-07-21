@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Exclusão de Conta - Oráculo FC</title>
+  <meta
+    name="description"
+    content="Página oficial para solicitar a exclusão da conta e dos dados associados ao aplicativo Oráculo FC."
+  />
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --primary: #1457d9;
+      --accent: #1457d9;
+      --primary-dark: #0d3fa5;
+      --border: #e4e7ec;
+      --warning-bg: #fff8e6;
+      --warning-border: #f5c451;
+      --shadow: 0 18px 50px rgba(16, 24, 40, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+        sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .topbar {
+      width: 100%;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .flag-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 26px;
+      padding: 0;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      background: transparent;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .flag-btn svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    .flag-btn:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    .flag-btn.active {
+      opacity: 1;
+      border-color: var(--accent);
+    }
+
+    main {
+      max-width: 820px;
+      margin: 48px auto;
+      padding: 0 20px 48px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 42px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      margin-top: 34px;
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    ol,
+    ul {
+      padding-left: 24px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 26px;
+    }
+
+    .email-box {
+      margin: 18px 0;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #f9fafb;
+    }
+
+    .email-box strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .email-link {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .email-link:hover {
+      text-decoration: underline;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 0.15s ease;
+    }
+
+    .button:hover {
+      background: var(--primary-dark);
+    }
+
+    .notice {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--warning-border);
+      border-radius: 10px;
+      background: var(--warning-bg);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 24px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        padding: 14px 16px;
+      }
+
+      main {
+        margin-top: 24px;
+      }
+
+      .card {
+        padding: 26px 20px;
+        border-radius: 14px;
+      }
+
+      .brand {
+        font-size: 1rem;
+      }
+
+      .flag-btn {
+        width: 34px;
+        height: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">Oráculo FC</div>
+
+      <div class="lang-switcher">
+        <button class="flag-btn active" data-lang="pt" onclick="setLang('pt')" aria-label="Português" title="Português">
+          <svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="16" fill="#009c3b"/>
+            <polygon points="12,2 22,8 12,14 2,8" fill="#ffdf00"/>
+            <circle cx="12" cy="8" r="3.4" fill="#002776"/>
+          </svg>
+        </button>
+        <button class="flag-btn" data-lang="en" onclick="setLang('en')" aria-label="English" title="English">
+          <svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="16" fill="#ffffff"/>
+            <rect y="0" width="24" height="2" fill="#B22234"/>
+            <rect y="4" width="24" height="2" fill="#B22234"/>
+            <rect y="8" width="24" height="2" fill="#B22234"/>
+            <rect y="12" width="24" height="2" fill="#B22234"/>
+            <rect width="10" height="9" fill="#3C3B6E"/>
+          </svg>
+        </button>
+        <button class="flag-btn" data-lang="es" onclick="setLang('es')" aria-label="Español" title="Español">
+          <svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="16" fill="#AA151B"/>
+            <rect y="4" width="24" height="8" fill="#F1BF00"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="card">
+      <h1 data-i18n="title">Exclusão de conta</h1>
+
+      <p class="subtitle" data-i18n="subtitle">
+        Solicite a exclusão permanente da sua conta e dos dados associados ao
+        Oráculo FC.
+      </p>
+
+      <p data-i18n="intro">
+        Os usuários do Oráculo FC podem solicitar a exclusão permanente da
+        conta e dos dados pessoais e de jogo diretamente associados a ela.
+      </p>
+
+      <h2 data-i18n="appTitle">Como excluir sua conta pelo aplicativo</h2>
+
+      <ol>
+        <li data-i18n="appStep1">Abra o aplicativo Oráculo FC.</li>
+        <li data-i18n="appStep2">Acesse Perfil ou Configurações.</li>
+        <li data-i18n="appStep3">Selecione a opção Excluir minha conta.</li>
+        <li data-i18n="appStep4">Confirme a exclusão quando solicitado.</li>
+      </ol>
+
+      <h2 data-i18n="webTitle">
+        Como solicitar a exclusão sem acessar o aplicativo
+      </h2>
+
+      <p data-i18n="webText">
+        Caso você não tenha mais acesso ao aplicativo, envie uma solicitação
+        para o nosso e-mail de suporte. Para ajudar na verificação da
+        titularidade, utilize preferencialmente o mesmo endereço de e-mail
+        associado à sua conta do Oráculo FC.
+      </p>
+
+      <div class="email-box">
+        <strong data-i18n="emailLabel">E-mail de suporte</strong>
+
+        <!--
+          IMPORTANTE:
+          Troque suporte@oraculofc.com pelo e-mail real de suporte do Oráculo FC.
+        -->
+        <a
+          id="supportEmail"
+          class="email-link"
+          href="mailto:suporte@oraculofc.com?subject=Solicitação%20de%20exclusão%20de%20conta%20-%20Oráculo%20FC"
+        >
+          suporte@oraculofc.com
+        </a>
+
+        <br />
+
+        <a
+          id="emailButton"
+          class="button"
+          href="mailto:suporte@oraculofc.com?subject=Solicitação%20de%20exclusão%20de%20conta%20-%20Oráculo%20FC"
+          data-i18n="emailButton"
+        >
+          Solicitar exclusão por e-mail
+        </a>
+      </div>
+
+      <h2 data-i18n="deletedTitle">Dados excluídos</h2>
+
+      <p data-i18n="deletedIntro">
+        Após a confirmação e o processamento da solicitação, poderão ser
+        excluídos os dados diretamente associados à conta do usuário,
+        incluindo:
+      </p>
+
+      <ul>
+        <li data-i18n="deleted1">Nome associado à conta;</li>
+        <li data-i18n="deleted2">Endereço de e-mail;</li>
+        <li data-i18n="deleted3">Foto de perfil associada à conta;</li>
+        <li data-i18n="deleted4">Identificador interno da conta;</li>
+        <li data-i18n="deleted5">Palpites realizados;</li>
+        <li data-i18n="deleted6">Pontuação, nível e progresso no jogo;</li>
+        <li data-i18n="deleted7">
+          Participação e informações diretamente associadas às ligas;
+        </li>
+        <li data-i18n="deleted8">
+          Outros dados do jogo vinculados diretamente à conta.
+        </li>
+      </ul>
+
+      <h2 data-i18n="retentionTitle">
+        Dados que podem ser mantidos e período de retenção
+      </h2>
+
+      <p data-i18n="retentionText">
+        Após a conclusão da exclusão, o Oráculo FC não mantém intencionalmente
+        dados pessoais diretamente associados à conta excluída, salvo quando a
+        conservação for necessária para cumprimento de obrigações legais,
+        prevenção de fraude, segurança ou exercício regular de direitos.
+      </p>
+
+      <p data-i18n="backupText">
+        Cópias residuais podem permanecer temporariamente em sistemas de backup
+        pelo período necessário ao ciclo técnico de substituição e exclusão
+        desses backups. Esses dados não são utilizados para operação normal do
+        aplicativo.
+      </p>
+
+      <div class="notice">
+        <strong data-i18n="thirdPartyTitle">Serviços de terceiros</strong>
+
+        <p data-i18n="thirdPartyText">
+          A exclusão da conta do Oráculo FC se aplica aos dados sob controle
+          direto do aplicativo. Dados processados de forma independente por
+          serviços de terceiros, como Google, Firebase ou AdMob, podem estar
+          sujeitos às políticas de privacidade e retenção desses respectivos
+          provedores.
+        </p>
+      </div>
+    </article>
+
+    <footer>
+      <span data-i18n="footer">
+        © Oráculo FC. Página oficial de solicitação de exclusão de conta.
+      </span>
+    </footer>
+  </main>
+
+  <script>
+    const translations = {
+      pt: {
+        pageTitle: "Exclusão de Conta - Oráculo FC",
+        title: "Exclusão de conta",
+        subtitle:
+          "Solicite a exclusão permanente da sua conta e dos dados associados ao Oráculo FC.",
+        intro:
+          "Os usuários do Oráculo FC podem solicitar a exclusão permanente da conta e dos dados pessoais e de jogo diretamente associados a ela.",
+        appTitle: "Como excluir sua conta pelo aplicativo",
+        appStep1: "Abra o aplicativo Oráculo FC.",
+        appStep2: "Acesse Perfil ou Configurações.",
+        appStep3: "Selecione a opção Excluir minha conta.",
+        appStep4: "Confirme a exclusão quando solicitado.",
+        webTitle: "Como solicitar a exclusão sem acessar o aplicativo",
+        webText:
+          "Caso você não tenha mais acesso ao aplicativo, envie uma solicitação para o nosso e-mail de suporte. Para ajudar na verificação da titularidade, utilize preferencialmente o mesmo endereço de e-mail associado à sua conta do Oráculo FC.",
+        emailLabel: "E-mail de suporte",
+        emailButton: "Solicitar exclusão por e-mail",
+        emailSubject: "Solicitação de exclusão de conta - Oráculo FC",
+        deletedTitle: "Dados excluídos",
+        deletedIntro:
+          "Após a confirmação e o processamento da solicitação, poderão ser excluídos os dados diretamente associados à conta do usuário, incluindo:",
+        deleted1: "Nome associado à conta;",
+        deleted2: "Endereço de e-mail;",
+        deleted3: "Foto de perfil associada à conta;",
+        deleted4: "Identificador interno da conta;",
+        deleted5: "Palpites realizados;",
+        deleted6: "Pontuação, nível e progresso no jogo;",
+        deleted7:
+          "Participação e informações diretamente associadas às ligas;",
+        deleted8:
+          "Outros dados do jogo vinculados diretamente à conta.",
+        retentionTitle: "Dados que podem ser mantidos e período de retenção",
+        retentionText:
+          "Após a conclusão da exclusão, o Oráculo FC não mantém intencionalmente dados pessoais diretamente associados à conta excluída, salvo quando a conservação for necessária para cumprimento de obrigações legais, prevenção de fraude, segurança ou exercício regular de direitos.",
+        backupText:
+          "Cópias residuais podem permanecer temporariamente em sistemas de backup pelo período necessário ao ciclo técnico de substituição e exclusão desses backups. Esses dados não são utilizados para operação normal do aplicativo.",
+        thirdPartyTitle: "Serviços de terceiros",
+        thirdPartyText:
+          "A exclusão da conta do Oráculo FC se aplica aos dados sob controle direto do aplicativo. Dados processados de forma independente por serviços de terceiros, como Google, Firebase ou AdMob, podem estar sujeitos às políticas de privacidade e retenção desses respectivos provedores.",
+        footer:
+          "© Oráculo FC. Página oficial de solicitação de exclusão de conta.",
+        lang: "pt-BR"
+      },
+
+      en: {
+        pageTitle: "Account Deletion - Oráculo FC",
+        title: "Account deletion",
+        subtitle:
+          "Request the permanent deletion of your account and the data associated with Oráculo FC.",
+        intro:
+          "Oráculo FC users may request the permanent deletion of their account and the personal and game data directly associated with it.",
+        appTitle: "How to delete your account in the app",
+        appStep1: "Open the Oráculo FC app.",
+        appStep2: "Go to Profile or Settings.",
+        appStep3: "Select the Delete my account option.",
+        appStep4: "Confirm the deletion when prompted.",
+        webTitle: "How to request deletion without accessing the app",
+        webText:
+          "If you no longer have access to the app, send a request to our support email address. To help us verify account ownership, preferably use the same email address associated with your Oráculo FC account.",
+        emailLabel: "Support email",
+        emailButton: "Request deletion by email",
+        emailSubject: "Account deletion request - Oráculo FC",
+        deletedTitle: "Data that is deleted",
+        deletedIntro:
+          "After the request is confirmed and processed, data directly associated with the user's account may be deleted, including:",
+        deleted1: "Name associated with the account;",
+        deleted2: "Email address;",
+        deleted3: "Profile photo associated with the account;",
+        deleted4: "Internal account identifier;",
+        deleted5: "Predictions submitted;",
+        deleted6: "Points, level and game progress;",
+        deleted7:
+          "League participation and information directly associated with leagues;",
+        deleted8: "Other game data directly linked to the account.",
+        retentionTitle: "Data that may be retained and retention period",
+        retentionText:
+          "After deletion is completed, Oráculo FC does not intentionally retain personal data directly associated with the deleted account, except when retention is necessary to comply with legal obligations, prevent fraud, ensure security, or exercise legal rights.",
+        backupText:
+          "Residual copies may temporarily remain in backup systems for the period required by the technical backup replacement and deletion cycle. This data is not used for the normal operation of the app.",
+        thirdPartyTitle: "Third-party services",
+        thirdPartyText:
+          "Deletion of an Oráculo FC account applies to data under the app's direct control. Data independently processed by third-party services, such as Google, Firebase or AdMob, may be subject to the privacy and retention policies of those respective providers.",
+        footer:
+          "© Oráculo FC. Official account deletion request page.",
+        lang: "en"
+      },
+
+      es: {
+        pageTitle: "Eliminación de Cuenta - Oráculo FC",
+        title: "Eliminación de cuenta",
+        subtitle:
+          "Solicita la eliminación permanente de tu cuenta y de los datos asociados a Oráculo FC.",
+        intro:
+          "Los usuarios de Oráculo FC pueden solicitar la eliminación permanente de su cuenta y de los datos personales y del juego directamente asociados a ella.",
+        appTitle: "Cómo eliminar tu cuenta desde la aplicación",
+        appStep1: "Abre la aplicación Oráculo FC.",
+        appStep2: "Accede a Perfil o Configuración.",
+        appStep3: "Selecciona la opción Eliminar mi cuenta.",
+        appStep4: "Confirma la eliminación cuando se te solicite.",
+        webTitle: "Cómo solicitar la eliminación sin acceder a la aplicación",
+        webText:
+          "Si ya no tienes acceso a la aplicación, envía una solicitud a nuestro correo electrónico de soporte. Para ayudarnos a verificar la titularidad de la cuenta, utiliza preferentemente la misma dirección de correo electrónico asociada a tu cuenta de Oráculo FC.",
+        emailLabel: "Correo electrónico de soporte",
+        emailButton: "Solicitar eliminación por correo",
+        emailSubject: "Solicitud de eliminación de cuenta - Oráculo FC",
+        deletedTitle: "Datos que se eliminan",
+        deletedIntro:
+          "Después de confirmar y procesar la solicitud, podrán eliminarse los datos directamente asociados a la cuenta del usuario, incluidos:",
+        deleted1: "Nombre asociado a la cuenta;",
+        deleted2: "Dirección de correo electrónico;",
+        deleted3: "Foto de perfil asociada a la cuenta;",
+        deleted4: "Identificador interno de la cuenta;",
+        deleted5: "Pronósticos realizados;",
+        deleted6: "Puntuación, nivel y progreso en el juego;",
+        deleted7:
+          "Participación e información directamente asociada a las ligas;",
+        deleted8:
+          "Otros datos del juego vinculados directamente a la cuenta.",
+        retentionTitle:
+          "Datos que pueden conservarse y período de conservación",
+        retentionText:
+          "Una vez completada la eliminación, Oráculo FC no conserva intencionadamente datos personales directamente asociados a la cuenta eliminada, salvo cuando la conservación sea necesaria para cumplir obligaciones legales, prevenir fraudes, garantizar la seguridad o ejercer derechos legales.",
+        backupText:
+          "Las copias residuales pueden permanecer temporalmente en sistemas de respaldo durante el período necesario para el ciclo técnico de sustitución y eliminación de dichas copias. Estos datos no se utilizan para el funcionamiento normal de la aplicación.",
+        thirdPartyTitle: "Servicios de terceros",
+        thirdPartyText:
+          "La eliminación de la cuenta de Oráculo FC se aplica a los datos bajo el control directo de la aplicación. Los datos procesados de forma independiente por servicios de terceros, como Google, Firebase o AdMob, pueden estar sujetos a las políticas de privacidad y conservación de esos proveedores.",
+        footer:
+          "© Oráculo FC. Página oficial de solicitud de eliminación de cuenta.",
+        lang: "es"
+      }
+    };
+
+    const SUPPORT_EMAIL = "suporte@oraculofc.com";
+
+    function setLang(lang) {
+      setLanguage(lang);
+    }
+
+    function setLanguage(lang) {
+      const selected = translations[lang] || translations.pt;
+
+      document.documentElement.lang = selected.lang;
+      document.title = selected.pageTitle;
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.getAttribute("data-i18n");
+        if (selected[key]) {
+          element.textContent = selected[key];
+        }
+      });
+
+      const mailto =
+        "mailto:" +
+        SUPPORT_EMAIL +
+        "?subject=" +
+        encodeURIComponent(selected.emailSubject);
+
+      document.getElementById("supportEmail").href = mailto;
+      document.getElementById("supportEmail").textContent = SUPPORT_EMAIL;
+      document.getElementById("emailButton").href = mailto;
+
+      document.querySelectorAll(".flag-btn").forEach((button) => {
+        const isActive = button.dataset.lang === lang;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      localStorage.setItem("oraculo-fc-language", lang);
+    }
+
+    document.querySelectorAll(".flag-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.lang);
+      });
+    });
+
+    const savedLanguage = localStorage.getItem("oraculo-fc-language");
+    const browserLanguage = navigator.language.toLowerCase();
+
+    let initialLanguage = "pt";
+
+    if (savedLanguage && translations[savedLanguage]) {
+      initialLanguage = savedLanguage;
+    } else if (browserLanguage.startsWith("es")) {
+      initialLanguage = "es";
+    } else if (browserLanguage.startsWith("en")) {
+      initialLanguage = "en";
+    }
+
+    setLanguage(initialLanguage);
+  </script>
+</body>
+</html>
