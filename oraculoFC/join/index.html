@@ -133,18 +133,20 @@
     document.getElementById('download-app').textContent = t.downloadApp;
 
     // O app (ver AndroidManifest.xml) espera o link como
-    // https://oraculofc.insightmobile.com.br/join/{codigo} — se o Android já reconheceu e
-    // verificou o domínio, o app abre direto e esta página nunca chega a carregar de verdade.
-    // Ela só aparece pra quem não tem o app instalado, ou quando o link é aberto num desktop.
+    // https://oraculofc.insightmobile.com.br/oraculoFC/join/{codigo} — se o Android já
+    // reconheceu e verificou o domínio, o app abre direto e esta página nunca chega a carregar
+    // de verdade. Ela só aparece pra quem não tem o app instalado, ou quando o link é aberto
+    // num desktop.
     //
-    // IMPORTANTE: pra isso funcionar hospedando este único arquivo, o servidor do site precisa
-    // redirecionar (rewrite, não redirect) qualquer requisição de /join/* pra este arquivo —
-    // senão cada código geraria uma URL de arquivo inexistente (404). Se o seu site não tiver
-    // esse tipo de regra disponível, me avise que troco o formato do link pra usar
-    // /join?code=... em vez de /join/... (funciona em qualquer hospedagem, sem precisar de
-    // rewrite).
+    // IMPORTANTE: pra isso funcionar hospedando este único arquivo (oraculoFC/join/index.html
+    // no repo), o servidor do site precisa reescrever (rewrite, não redirect) qualquer
+    // requisição de /oraculoFC/join/* pra este arquivo — senão cada código geraria uma URL de
+    // arquivo inexistente (404). Se o seu site não tiver esse tipo de regra disponível, me
+    // avise que troco o formato do link pra usar /oraculoFC/join?code=... em vez de
+    // /oraculoFC/join/... (funciona em qualquer hospedagem, sem precisar de rewrite).
     var parts = window.location.pathname.split('/').filter(Boolean);
-    var fromPath = parts.length > 1 ? parts[parts.length - 1] : null;
+    // Caminho fixo é oraculoFC/join/{codigo} — 2 segmentos antes do código de verdade.
+    var fromPath = parts.length > 2 ? parts[parts.length - 1] : null;
     var code = fromPath || new URLSearchParams(window.location.search).get('code');
 
     if (code) {
