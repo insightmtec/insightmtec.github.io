@@ -1,0 +1,8 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],                                                                                                                                                                                                                                                                                                        
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.insight.oraculofc",
+      "sha256_cert_fingerprints": ["61:7A:13:D0:26:B7:99:A3:EF:8B:25:69:A2:4F:D6:40:47:DD:77:7C:2E:03:38:D7:81:64:BD:11:F2:15:0E:43"]
+    }
+  }]
